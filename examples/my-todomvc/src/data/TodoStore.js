@@ -15,8 +15,16 @@ class TodoStore extends ReduceStore {
   reduce(state, action) {
     switch (action.type) {
       case TodoActionTypes.ADD_TODO:
-        // Do nothing for now, we will add logic here soon!
-        return state;
+        // Don't add todos with no text.
+        if (!action.text) {
+          return state;
+        }
+        const id = Counter.increment();
+        return state.set(id, new Todo({
+          id,
+          text: action.text,
+          complete: false,
+        }));
 
       default:
         return state;

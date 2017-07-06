@@ -2,6 +2,8 @@ import Immutable from 'immutable';
 import {ReduceStore} from 'flux/utils';
 import TodoActionTypes from './TodoActionTypes';
 import TodoDispatcher from './TodoDispatcher';
+import Counter from './Counter'
+import Todo from './Todo'
 
 class TodoStore extends ReduceStore {
   constructor() {
